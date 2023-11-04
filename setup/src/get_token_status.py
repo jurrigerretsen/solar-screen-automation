@@ -3,18 +3,16 @@ This script loads environment variables and uses them to initialize a SomphyAPI 
 It then logs in and checks the token status. Finally, it prints the status.
 """
 import os
-import os
-from dotenv import load_dotenv
 from somphy_api import SomphyAPI
 
-# Load environment variables
-load_dotenv()
-
-# Get environment variables
-SOMPHY_URL = os.getenv("SOMPHY_URL")
-SOMPHY_EMAIL = os.getenv("SOMPHY_EMAIL")
-SOMPHY_PASSWORD = os.getenv("SOMPHY_PASSWORD")
-SOMPHY_POD = os.getenv("SOMPHY_POD")
+try:
+    SOMPHY_URL = os.environ['SOMPHY_URL']
+    SOMPHY_EMAIL = os.environ['SOMPHY_EMAIL']
+    SOMPHY_PASSWORD = os.environ['SOMPHY_PASSWORD']
+    SOMPHY_POD = os.environ['SOMPHY_POD']
+    
+except KeyError:
+    print("Environment variables not set!")
 
 if __name__ == "__main__":
     # Initialize the SomphyAPI object

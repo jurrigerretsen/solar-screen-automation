@@ -1,14 +1,5 @@
 import requests
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-SOMPHY_URL = os.getenv("SOMPHY_URL")
-SOMPHY_EMAIL = os.getenv("SOMPHY_EMAIL")
-SOMPHY_PASSWORD = os.getenv("SOMPHY_PASSWORD")
-SOMPHY_POD = os.getenv("SOMPHY_POD")
-
 
 class SomphyAPI:
     """
