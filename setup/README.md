@@ -33,6 +33,3 @@ To run the unit tests, use the following command:
 ```
 poetry run python -m unittest test_get_token_status.py
 ```
-
-## License
-This project is licensed under the MIT License.
