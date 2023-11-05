@@ -1,34 +1,38 @@
-# Overkiz API Project
+# Somphy API Python Scripts
+This repository contains three Python scripts that interact with the Somphy API:
+- `somphy_api.py`: This script contains the `SomphyAPI` class, which is used to interact with the Somphy API. It includes methods for logging in to Somphy and retrieving token status.
 
-This project contains a Python script to interact with the Overkiz API.
+- `get_token_status.py`: This script uses the `SomphyAPI` class to retrieve and print the status of a Somphy token.
 
-## Folder Structure
+- `get_token.py`: This script uses the `SomphyAPI` class to retrieve and print a Somphy token. This script will create tokens in Somphy, so it's best not to call it too frequently.
 
-The workspace contains two folders by default, where:
+## Usage
+This project uses Poetry for dependency management and virtual environments, and .env for environment variables.
 
-- `src`: the folder to maintain sources
-    - `overkiz.py`: contains the `OverkizAPI` class for interacting with the Overkiz API.
-- `tests`: the folder to maintain tests
-    - `test_overkiz.py`: contains the unit tests for the `OverkizAPI` class.
+First, install the required dependencies:
+```
+poetry install
+```
 
-## Setup
+To use these scripts, you need to provide your Somphy credentials. These can be provided in a .env file:
+```
+SOMPHY_URL=<your-somphy-url>
+SOMPHY_EMAIL=<your-somphy-email>
+SOMPHY_PASSWORD=<your-somphy-password>
+SOMPHY_POD=<your-somphy-pod>
+```
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory.
-3. Create a virtual environment: `python3 -m venv env`
-4. Activate the virtual environment: `source env/bin/activate` (on Windows, use `env\Scripts\activate`)
-5. Install the required dependencies: `pip install -r requirements.txt`
-6. Create a `.env` file in the root of the project and add your Overkiz credentials:
+Then, you can run the scripts like this:
+```
+poetry run -vvv python src/get_token.py
+poetry run -vvv python src/get_token_status.py
+```
 
-    ```properties
-    SOMPHY_URL=your_overkiz_url
-    SOMPHY_EMAIL=your_email@example.com
-    SOMPHY_PASSWORD=your_password
-    SOMPHY_POD=your_pod_pin
-    ```
+## Testing
+To run the unit tests, use the following command:
+```
+poetry run python -m unittest test_get_token_status.py
+```
 
-7. Run the script: `python src/overkiz.py`
-
-## Running Tests
-
-To run the tests, use the following command: `python -m unittest -k TestOverkizAPI`
+## License
+This project is licensed under the MIT License.
