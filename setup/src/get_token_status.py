@@ -1,22 +1,22 @@
 """
-This script loads environment variables and uses them to initialize a SomphyAPI object. 
+This script loads environment variables and uses them to initialize a SomfyAPI object. 
 It then logs in and checks the token status. Finally, it prints the status.
 """
 import os
-from somphy_api import SomphyAPI
+from somfy_api import SomfyAPI
 
 try:
-    SOMPHY_URL = os.environ['SOMPHY_URL']
-    SOMPHY_EMAIL = os.environ['SOMPHY_EMAIL']
-    SOMPHY_PASSWORD = os.environ['SOMPHY_PASSWORD']
-    SOMPHY_POD = os.environ['SOMPHY_POD']
+    SOMFY_URL = os.environ['SOMFY_URL']
+    SOMFY_EMAIL = os.environ['SOMFY_EMAIL']
+    SOMFY_PASSWORD = os.environ['SOMFY_PASSWORD']
+    SOMFY_POD = os.environ['SOMFY_POD']
     
 except KeyError:
     print("Environment variables not set!")
 
 if __name__ == "__main__":
-    # Initialize the SomphyAPI object
-    api = SomphyAPI(SOMPHY_URL, SOMPHY_EMAIL, SOMPHY_PASSWORD, SOMPHY_POD)
+    # Initialize the SomfyAPI object
+    api = SomfyAPI(SOMFY_URL, SOMFY_EMAIL, SOMFY_PASSWORD, SOMFY_POD)
 
     # Login
     api.login()

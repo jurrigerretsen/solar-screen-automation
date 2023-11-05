@@ -1,7 +1,7 @@
 import requests
 import os
 
-class SomphyAPI:
+class SomfyAPI:
     """
     A class used to interact with the Somfy API.
 
