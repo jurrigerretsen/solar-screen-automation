@@ -24,7 +24,7 @@ class SomfyAPI:
         Logs in the user and returns the session ID.
     generate_token()
         Generates a token for the user.
-    activate_token(token, label="Toto token", scope="devmode")
+    activate_token(token, label="Local token", scope="devmode")
         Activates a token for the user.
     check_token_status()
         Checks the status of the user's token.
@@ -47,7 +47,7 @@ class SomfyAPI:
             The session ID of the user.
         """
         endpoint = f"https://{self.url}/enduser-mobile-web/enduserAPI/login"
-        headers = {"Content-Type": "application/x-www-form-urlencoded"}
+        headers = {"Content-Type": "application/json"}
         body = {"userId": self.email, "userPassword": self.password}
         response = requests.post(endpoint, headers=headers, data=body)
         if response.status_code == 200:
@@ -75,7 +75,7 @@ class SomfyAPI:
         else:
             response.raise_for_status()
 
-    def activate_token(self, token, label="Toto token", scope="devmode"):
+    def activate_token(self, token, label="Local token", scope="devmode"): # todo: input token & scope as parameters
         """
         Activates a token for the user.
 
